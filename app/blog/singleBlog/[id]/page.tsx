@@ -11,7 +11,7 @@ const First = () => {
   const router = useParams();
   const { id } = router;
 
-  const { data: blogs, isLoading: blogsLoading, error: blogsError } = useGetBlogsQuery();
+  const { data: blogs, isLoading: blogsLoading, error: blogsError } = useGetBlogsQuery({});
   const {
     data: blogInfo,
     isLoading: singleBlogLoading,

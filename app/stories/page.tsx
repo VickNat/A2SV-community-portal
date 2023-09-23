@@ -10,9 +10,19 @@ import linkedin from '@/assets/images/linkedinPartner.svg';
 import StoriesProfile from '@/assets/images/storiesProfile.png';
 import StoriesProfile2 from '@/assets/images/storiesProfile2.png';
 import StoriesProfile3 from '@/assets/images/storiesProfile3.png';
-import type { Stories } from '@/lib/types';
+import type { Stories, Story } from '@/lib/types';
 
-export function StoriesCard({
+type StoriesCardProps = {
+  alternate?: boolean;
+  profileImage?: StaticImageData;
+  personName: string;
+  imgURL: string;
+  role: string;
+  location: string;
+  story: Story[];
+};
+
+const StoriesCard: React.FC<StoriesCardProps> = ({
   alternate,
   profileImage,
   personName,
@@ -20,7 +30,7 @@ export function StoriesCard({
   role,
   location,
   story,
-}: Stories) {
+}) => {
   return (
     <div
       className={`${

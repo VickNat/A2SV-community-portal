@@ -16,12 +16,12 @@ export const loginSlice = createSlice({
   name: 'loginSlice',
   initialState,
   reducers: {
-    setUser: (state: TokenAndUser, action) => {
+    setUser: (state: TokenAndUser | null, action) => {
       console.log("I'm here", action);
       localStorage.setItem('login', JSON.stringify(action.payload));
       return action.payload;
     },
-    unsetUser: (state: any) => {
+    unsetUser: () => {
       localStorage.removeItem('login');
       return null;
     },

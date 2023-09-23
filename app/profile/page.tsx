@@ -33,12 +33,14 @@ export default function Section() {
 
   useEffect(() => {
     const fetchImage = async () => {
-      await createFile(user.userProfile);
-      setLoadingImage(false);
+      if (user && user.userProfile) {
+        await createFile(user.userProfile);
+        setLoadingImage(false);
+      }
     };
-
+  
     fetchImage();
-  }, []);
+  }, [user?.userProfile]);  
 
   const [editUser, { isLoading, isSuccess }] = useEditUserMutation();
 
@@ -74,9 +76,11 @@ export default function Section() {
 
       console.log(res);
 
-      obj['userEmail'] = res.body.email;
-      obj['userProfile'] = res.body.image;
-      obj['userName'] = res.body.name;
+      if (loginState) {
+        obj['userEmail'] = res.body.email;
+        obj['userProfile'] = res.body.image;
+        obj['userName'] = res.body.name;
+      }
 
       dispatch(unsetUser());
       dispatch(setUser(obj));

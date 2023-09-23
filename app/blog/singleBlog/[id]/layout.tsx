@@ -1,10 +1,12 @@
+"use client"
+
 import Image from 'next/image';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import arrowBack from '@/assets/images/arrowLeft.svg';
 import Link from 'next/link';
 import { AiOutlineLeft } from 'react-icons/ai';
 
-const layout = ({ children }) => {
+const layout = ({ children }: { children: ReactNode }) => {
   return (
     <div>
       <Link

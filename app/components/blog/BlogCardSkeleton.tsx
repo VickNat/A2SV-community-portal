@@ -1,5 +1,4 @@
 import React from 'react';
-import Chip from './Chip'; // Assuming you have a Chip component
 
 const BlogCardSkeleton = () => {
   return (

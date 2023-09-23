@@ -43,7 +43,7 @@ const SingleBlogCard: React.FC<Blog> = ({
             <div
                 className='p-3 space-y-4 dark:text-dark-textColor-50'>
                 <div
-                    
+
                     className='flex items-center space-x-4 text-sm'>
                     <Image
                         src={author?.image ? author.image : ""}
@@ -54,19 +54,20 @@ const SingleBlogCard: React.FC<Blog> = ({
                     />
                     <span> by {author?.name}</span>
                     <span>{formattedDate}</span>
-                    </div>
+                </div>
                 <div
                     className='flex flex-wrap w-full items-start text-center !mb-12'>
                     {tags.map((tag, i) => {
                         return (
                             <p
+                                key={i}
                                 className='block m-2 rounded-full py-1 px-3 bg-gray-100 dark:bg-dark-background dark:text-dark-textColor-50'>{tag}</p>
                         )
 
                     })}
                 </div>
 
-                
+
                 <div
                     className='text-sm absolute bottom-0 left-0 w-full p-4 mx-auto flex flex-wrap justify-between font-base'>
                     <hr className='w-full mb-4' />

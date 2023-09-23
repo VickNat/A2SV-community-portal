@@ -14,7 +14,7 @@ const Page: React.FC = () => {
   const [blogsPerPage, setBlogsPerPage] = useState(3); // Dynamic number of blogs per page
   const [paginationCount, setPaginationCount] = useState(5); // Dynamic number of pagination numbers
   const loginState = useAppSelector((state: any) => state.login);
-  const { data: blogs, error, isLoading, isSuccess } = useGetBlogsQuery();
+  const { data: blogs, error, isLoading, isSuccess } = useGetBlogsQuery({});
 
   if (error) {
     throw Error('Network');

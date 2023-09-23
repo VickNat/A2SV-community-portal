@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useEffect, useRef, useState } from 'react';
+import { Dispatch, FC, SetStateAction, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import A2SVLogo from '@/assets/images/Group 39.svg';
 import Link from 'next/link';
@@ -20,7 +20,7 @@ const Header: FC = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [isClient, setClient] = useState(false);
   // console.log(useDarkMode());
-  const [colorTheme, setTheme] = useDarkMode();
+  const [colorTheme, setTheme]: [string, Dispatch<SetStateAction<string>>] = useDarkMode();
   const[backToTopState, setbackToTopState] = useState<boolean>(false)
 
   const BackToTop = ()=>{
@@ -186,7 +186,7 @@ const Header: FC = () => {
             .filter((link) => {
               if (loginState && ['Login'].includes(link.name)) {
                 return false;
-              } else if (!loginState && [('Profile', 'Logout')].includes(link.name)) {
+              } else if (!loginState && [('Logout')].includes(link.name)) {
                 return false;
               }
 

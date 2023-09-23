@@ -28,15 +28,15 @@ export default function Section() {
         blog.author?.name.toLowerCase().includes(search.toLowerCase())
       );
     })
-    .sort((a: Blog, b: Blog) => b?.createdAt?.localeCompare(a?.createdAt));
+    .sort((a: Blog, b: Blog) => b?.createdAt?.localeCompare(a.createdAt ? a.createdAt : "" ) || 0);
 
   //let bls = blogsToShow.map((blog) => blog.title);
 
-  const totalBlogs = blogsToShow.length; // Calculate total number of blogs
+  const totalBlogs = blogsToShow?.length ? blogsToShow.length : 0; // Calculate total number of blogs
 
   const startIndex = (page - 1) * blogsPerPage;
   const endIndex = startIndex + blogsPerPage;
-  const paginatedBlogs = blogsToShow.slice(startIndex, endIndex);
+  const paginatedBlogs = blogsToShow?.slice(startIndex, endIndex);
 
   return (
     <div>
