@@ -1,4 +1,3 @@
-"use client"
 import ReduxProvider from '@/lib/providers';
 import './globals.css';
 import type { Metadata } from 'next';
